@@ -1,4 +1,4 @@
-## Boilerplate Code for a Bitcoin Exchange using the BitGo API
+## Boilerplate Code for a Bitcoin Casino Slot site using the BitGo API
 
 This is a fully functional side project that never got off the ground. No license or restrctions applied. Feel free to fork or modify at your own use. Pull requests will be graciously considered.
 
