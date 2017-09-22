@@ -1,0 +1,587 @@
+/*
+    Slot Machine
+*/
+
+ol,
+ul,
+li {
+    border: 0;
+    font-family: inherit;
+    font-size: 100%;
+    font-style: inherit;
+    font-weight: inherit;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    vertical-align: baseline;
+    list-style: none;
+}
+
+#slot-machine {
+    border-radius: 10px;
+    box-shadow: 0 1px 100px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(0, 0, 0, 0.8);
+    height: 150px;
+    margin: 50px auto;
+    position: relative;
+    width: 200px;
+}
+
+#slot-body {
+    background: #ED5D1E;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    border: 2px solid #ED5D1E;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    box-shadow: inset 0 0 25px rgba(255, 255, 255, 0.6);
+    height: 150px;
+    margin: 0px auto;
+    position: relative;
+    width: 200px;
+    z-index: 2;
+}
+
+#slot-frame {
+    background: #1b1b1b;
+    background: -moz-linear-gradient(top, #1b1b1b 0%, #383838 8%, #3a3a3a 20%, #0a0a0a 47%, #010101 50%, #0d0d0d 54%, #444444 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #1b1b1b), color-stop(8%, #383838), color-stop(20%, #3a3a3a), color-stop(47%, #0a0a0a), color-stop(50%, #010101), color-stop(54%, #0d0d0d), color-stop(100%, #444444));
+    background: -webkit-linear-gradient(top, #1b1b1b 0%, #383838 8%, #3a3a3a 20%, #0a0a0a 47%, #010101 50%, #0d0d0d 54%, #444444 100%);
+    background: -o-linear-gradient(top, #1b1b1b 0%, #383838 8%, #3a3a3a 20%, #0a0a0a 47%, #010101 50%, #0d0d0d 54%, #444444 100%);
+    background: -ms-linear-gradient(top, #1b1b1b 0%, #383838 8%, #3a3a3a 20%, #0a0a0a 47%, #010101 50%, #0d0d0d 54%, #444444 100%);
+    background: linear-gradient(to bottom, #1b1b1b 0%, #383838 8%, #3a3a3a 20%, #0a0a0a 47%, #010101 50%, #0d0d0d 54%, #444444 100%);
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    -moz-box-shadow: 0 0 16px rgba(255, 255, 255, 0.3);
+    -webkit-box-shadow: 0 0 16px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.3), 0 1px 1px rgba(255, 255, 255, 0.5), 0 -1px 1px rgba(255, 255, 255, 0.2), inset 0 -2px 15px #000;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 2px solid #ED5D1E;
+    height: 90px;
+    left: 50%;
+    margin-left: -85px;
+    position: absolute;
+    top: 10px;
+    width: 171px;
+    z-index: 1;
+}
+
+#slot-wheels {
+    height: 86px;
+    left: 15px;
+    overflow: hidden;
+    position: absolute;
+    top: 12px;
+    width: 167px;
+    z-index: 2;
+}
+
+#slot-wheels .wheel {
+    background: #FFF;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+    height: 86px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 44px;
+}
+
+#slot-wheels .wheel img {
+    left: 0;
+    position: absolute;
+    top: -4px;
+    width: 44px;
+    z-index: 1;
+}
+
+#wheel1 {
+    left: 11px;
+}
+
+#wheel2 {
+    left: 61px;
+}
+
+#wheel3 {
+    left: 111px;
+}
+
+#slot-wheels .wheel .overlay {
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.25) 25%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.25) 80%, rgba(0, 0, 0, 1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 1)), color-stop(25%, rgba(0, 0, 0, 0.25)), color-stop(50%, rgba(0, 0, 0, 0)), color-stop(80%, rgba(0, 0, 0, 0.25)), color-stop(100%, rgba(0, 0, 0, 1)));
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.25) 25%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.25) 80%, rgba(0, 0, 0, 1) 100%);
+    background: -o-linear-gradient(top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.25) 25%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.25) 80%, rgba(0, 0, 0, 1) 100%);
+    background: -ms-linear-gradient(top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.25) 25%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.25) 80%, rgba(0, 0, 0, 1) 100%);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.25) 25%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.25) 80%, rgba(0, 0, 0, 1) 100%);
+    border: 1px solid #000;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+}
+
+#slot-block {
+    display: none;
+    height: 113%;
+    left: 0;
+    position: absolute;
+    top: -18px;
+    width: 225px;
+    z-index: 4;
+}
+
+#slot-display {
+    background: #1b1b1b;
+    background: -moz-linear-gradient(top, #1b1b1b 0%, #383838 8%, #3a3a3a 20%, #0a0a0a 47%, #010101 50%, #0d0d0d 54%, #444444 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #1b1b1b), color-stop(8%, #383838), color-stop(20%, #3a3a3a), color-stop(47%, #0a0a0a), color-stop(50%, #010101), color-stop(54%, #0d0d0d), color-stop(100%, #444444));
+    background: -webkit-linear-gradient(top, #1b1b1b 0%, #383838 8%, #3a3a3a 20%, #0a0a0a 47%, #010101 50%, #0d0d0d 54%, #444444 100%);
+    background: -o-linear-gradient(top, #1b1b1b 0%, #383838 8%, #3a3a3a 20%, #0a0a0a 47%, #010101 50%, #0d0d0d 54%, #444444 100%);
+    background: -ms-linear-gradient(top, #1b1b1b 0%, #383838 8%, #3a3a3a 20%, #0a0a0a 47%, #010101 50%, #0d0d0d 54%, #444444 100%);
+    background: linear-gradient(to bottom, #1b1b1b 0%, #383838 8%, #3a3a3a 20%, #0a0a0a 47%, #010101 50%, #0d0d0d 54%, #444444 100%);
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    -moz-box-shadow: 0 0 16px rgba(255, 255, 255, 0.3);
+    -webkit-box-shadow: 0 0 16px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.3), 0 1px 1px rgba(255, 255, 255, 0.5), 0 -1px 1px rgba(255, 255, 255, 0.2), inset 0 -2px 15px #000;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 2px solid #ED5D1E;
+    bottom: 10px;
+    height: 28px;
+    left: 50%;
+    letter-spacing: 3px;
+    line-height: 25px;
+    margin-left: -85px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 18px;
+    text-align: right;
+    position: absolute;
+    width: 171px;
+    z-index: 2;
+}
+
+#slot-display div {
+    position: absolute;
+    right: 4px;
+    top: 1px;
+}
+
+#slot-credits {
+    color: #78FF00;
+    font-weight: bold;
+    z-index: 2;
+}
+
+#slot-zeros {
+    color: rgba(255, 255, 255, 0.3);
+    z-index: 1;
+}
+
+#slot-overlay {
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.15) 50%, rgba(0, 0, 0, 0) 51%, rgba(0, 0, 0, 0) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(0, 0, 0, 0.1)), color-stop(50%, rgba(0, 0, 0, 0.15)), color-stop(51%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0)));
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.15) 50%, rgba(0, 0, 0, 0) 51%, rgba(0, 0, 0, 0) 100%);
+    background: -o-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.15) 50%, rgba(0, 0, 0, 0) 51%, rgba(0, 0, 0, 0) 100%);
+    background: -ms-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.15) 50%, rgba(0, 0, 0, 0) 51%, rgba(0, 0, 0, 0) 100%);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.15) 50%, rgba(0, 0, 0, 0) 51%, rgba(0, 0, 0, 0) 100%);
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 3;
+}
+
+#slot-overlay-line {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    height: 46%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 3;
+}
+
+#slot-trigger {
+    cursor: pointer;
+    height: 85px;
+    right: -40px;
+    top: 30px;
+    position: absolute;
+    width: 37px;
+}
+
+#slot-trigger div {
+    position: absolute;
+    top: 0;
+}
+
+#slot-trigger .ring1 {
+    background: #282828;
+    background: -moz-linear-gradient(top, #282828 0%, #959595 14%, #d1d1d1 37%, #bababa 49%, #959595 67%, #212121 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #282828), color-stop(14%, #959595), color-stop(37%, #d1d1d1), color-stop(49%, #bababa), color-stop(67%, #959595), color-stop(100%, #212121));
+    background: -webkit-linear-gradient(top, #282828 0%, #959595 14%, #d1d1d1 37%, #bababa 49%, #959595 67%, #212121 100%);
+    background: -o-linear-gradient(top, #282828 0%, #959595 14%, #d1d1d1 37%, #bababa 49%, #959595 67%, #212121 100%);
+    background: -ms-linear-gradient(top, #282828 0%, #959595 14%, #d1d1d1 37%, #bababa 49%, #959595 67%, #212121 100%);
+    background: linear-gradient(to bottom, #282828 0%, #959595 14%, #d1d1d1 37%, #bababa 49%, #959595 67%, #212121 100%);
+    -moz-border-radius: 0 2px 2px 0;
+    -webkit-border-radius: 0 2px 2px 0;
+    border-radius: 0 2px 2px 0;
+    -moz-box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.8);
+    -webkit-box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.8);
+    box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.8);
+    height: 100%;
+    left: 0;
+    width: 8px;
+    z-index: 2;
+}
+
+#slot-trigger .ring1 .shadow {
+    background: -moz-linear-gradient(top, rgba(149, 149, 149, 0.2) 0%, rgba(13, 13, 13, 0.18) 46%, rgba(1, 1, 1, 0.18) 50%, rgba(10, 10, 10, 0.18) 53%, rgba(78, 78, 78, 0.17) 76%, rgba(56, 56, 56, 0.16) 87%, rgba(27, 27, 27, 0.15) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(149, 149, 149, 0.2)), color-stop(46%, rgba(13, 13, 13, 0.18)), color-stop(50%, rgba(1, 1, 1, 0.18)), color-stop(53%, rgba(10, 10, 10, 0.18)), color-stop(76%, rgba(78, 78, 78, 0.17)), color-stop(87%, rgba(56, 56, 56, 0.16)), color-stop(100%, rgba(27, 27, 27, 0.15)));
+    background: -webkit-linear-gradient(top, rgba(149, 149, 149, 0.2) 0%, rgba(13, 13, 13, 0.18) 46%, rgba(1, 1, 1, 0.18) 50%, rgba(10, 10, 10, 0.18) 53%, rgba(78, 78, 78, 0.17) 76%, rgba(56, 56, 56, 0.16) 87%, rgba(27, 27, 27, 0.15) 100%);
+    background: -o-linear-gradient(top, rgba(149, 149, 149, 0.2) 0%, rgba(13, 13, 13, 0.18) 46%, rgba(1, 1, 1, 0.18) 50%, rgba(10, 10, 10, 0.18) 53%, rgba(78, 78, 78, 0.17) 76%, rgba(56, 56, 56, 0.16) 87%, rgba(27, 27, 27, 0.15) 100%);
+    background: -ms-linear-gradient(top, rgba(149, 149, 149, 0.2) 0%, rgba(13, 13, 13, 0.18) 46%, rgba(1, 1, 1, 0.18) 50%, rgba(10, 10, 10, 0.18) 53%, rgba(78, 78, 78, 0.17) 76%, rgba(56, 56, 56, 0.16) 87%, rgba(27, 27, 27, 0.15) 100%);
+    background: linear-gradient(to bottom, rgba(149, 149, 149, 0.2) 0%, rgba(13, 13, 13, 0.18) 46%, rgba(1, 1, 1, 0.18) 50%, rgba(10, 10, 10, 0.18) 53%, rgba(78, 78, 78, 0.17) 76%, rgba(56, 56, 56, 0.16) 87%, rgba(27, 27, 27, 0.15) 100%);
+    -moz-border-radius: 0 2px 2px 0;
+    -webkit-border-radius: 0 2px 2px 0;
+    border-radius: 0 2px 2px 0;
+    height: 50%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 10px;
+    z-index: 1;
+}
+
+#slot-trigger .ring2 {
+    background: #282828;
+    background: -moz-linear-gradient(top, #282828 0%, #959595 14%, #d1d1d1 37%, #bababa 49%, #959595 67%, #212121 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #282828), color-stop(14%, #959595), color-stop(37%, #d1d1d1), color-stop(49%, #bababa), color-stop(67%, #959595), color-stop(100%, #212121));
+    background: -webkit-linear-gradient(top, #282828 0%, #959595 14%, #d1d1d1 37%, #bababa 49%, #959595 67%, #212121 100%);
+    background: -o-linear-gradient(top, #282828 0%, #959595 14%, #d1d1d1 37%, #bababa 49%, #959595 67%, #212121 100%);
+    background: -ms-linear-gradient(top, #282828 0%, #959595 14%, #d1d1d1 37%, #bababa 49%, #959595 67%, #212121 100%);
+    background: linear-gradient(to bottom, #282828 0%, #959595 14%, #d1d1d1 37%, #bababa 49%, #959595 67%, #212121 100%);
+    -moz-border-radius: 0 2px 2px 0;
+    -webkit-border-radius: 0 2px 2px 0;
+    border-radius: 0 2px 2px 0;
+    -moz-box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.8);
+    -webkit-box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.8);
+    box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.8);
+    height: 80%;
+    left: 8px;
+    overflow: hidden;
+    top: 10%;
+    width: 10px;
+    z-index: 1;
+}
+
+#slot-trigger .ring2 .shadow {
+    background: -moz-linear-gradient(top, rgba(149, 149, 149, 0.15) 0%, rgba(13, 13, 13, 0.15) 46%, rgba(1, 1, 1, 0.15) 50%, rgba(10, 10, 10, 0.15) 53%, rgba(78, 78, 78, 0.15) 76%, rgba(56, 56, 56, 0.15) 87%, rgba(27, 27, 27, 0.15) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(149, 149, 149, 0.15)), color-stop(46%, rgba(13, 13, 13, 0.15)), color-stop(50%, rgba(1, 1, 1, 0.15)), color-stop(53%, rgba(10, 10, 10, 0.15)), color-stop(76%, rgba(78, 78, 78, 0.15)), color-stop(87%, rgba(56, 56, 56, 0.15)), color-stop(100%, rgba(27, 27, 27, 0.15)));
+    background: -webkit-linear-gradient(top, rgba(149, 149, 149, 0.15) 0%, rgba(13, 13, 13, 0.15) 46%, rgba(1, 1, 1, 0.15) 50%, rgba(10, 10, 10, 0.15) 53%, rgba(78, 78, 78, 0.15) 76%, rgba(56, 56, 56, 0.15) 87%, rgba(27, 27, 27, 0.15) 100%);
+    background: -o-linear-gradient(top, rgba(149, 149, 149, 0.15) 0%, rgba(13, 13, 13, 0.15) 46%, rgba(1, 1, 1, 0.15) 50%, rgba(10, 10, 10, 0.15) 53%, rgba(78, 78, 78, 0.15) 76%, rgba(56, 56, 56, 0.15) 87%, rgba(27, 27, 27, 0.15) 100%);
+    background: -ms-linear-gradient(top, rgba(149, 149, 149, 0.15) 0%, rgba(13, 13, 13, 0.15) 46%, rgba(1, 1, 1, 0.15) 50%, rgba(10, 10, 10, 0.15) 53%, rgba(78, 78, 78, 0.15) 76%, rgba(56, 56, 56, 0.15) 87%, rgba(27, 27, 27, 0.15) 100%);
+    background: linear-gradient(to bottom, rgba(149, 149, 149, 0.15) 0%, rgba(13, 13, 13, 0.15) 46%, rgba(1, 1, 1, 0.15) 50%, rgba(10, 10, 10, 0.15) 53%, rgba(78, 78, 78, 0.15) 76%, rgba(56, 56, 56, 0.15) 87%, rgba(27, 27, 27, 0.15) 100%);
+    -moz-border-radius: 0 2px 2px 0;
+    -webkit-border-radius: 0 2px 2px 0;
+    border-radius: 0 2px 2px 0;
+    height: 50%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 10px;
+    z-index: 1;
+}
+
+#slot-trigger .arm {
+    background: #0d0d0d;
+    background: -moz-linear-gradient(left, #0d0d0d 0%, #4e4e4e 47%, #383838 87%, #1b1b1b 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, #0d0d0d), color-stop(47%, #4e4e4e), color-stop(87%, #383838), color-stop(100%, #1b1b1b));
+    background: -webkit-linear-gradient(left, #0d0d0d 0%, #4e4e4e 47%, #383838 87%, #1b1b1b 100%);
+    background: -o-linear-gradient(left, #0d0d0d 0%, #4e4e4e 47%, #383838 87%, #1b1b1b 100%);
+    background: -ms-linear-gradient(left, #0d0d0d 0%, #4e4e4e 47%, #383838 87%, #1b1b1b 100%);
+    background: linear-gradient(to right, #0d0d0d 0%, #4e4e4e 47%, #383838 87%, #1b1b1b 100%);
+    -moz-border-radius: 0 0 4px 4px;
+    -webkit-border-radius: 0 0 4px 4px;
+    border-radius: 0 0 4px 4px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.8);
+    height: 50%;
+    left: 10px;
+    top: -25px;
+    width: 6px;
+    z-index: 3;
+    overflow: visible !important;
+}
+
+#slot-trigger .arm .knob {
+    background: #ff6363;
+    background: -moz-radial-gradient(center, ellipse cover, #ff6363 0%, #cf0404 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #ff6363), color-stop(100%, #cf0404));
+    background: -webkit-radial-gradient(center, ellipse cover, #ff6363 0%, #cf0404 100%);
+    background: -o-radial-gradient(center, ellipse cover, #ff6363 0%, #cf0404 100%);
+    background: -ms-radial-gradient(center, ellipse cover, #ff6363 0%, #cf0404 100%);
+    background: radial-gradient(ellipse at center, #ff6363 0%, #cf0404 100%);
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+    height: 16px;
+    left: -7px;
+    top: -15px;
+    width: 20px;
+    z-index: 4;
+}
+
+#slot-trigger .arm-shadow {
+    background: #000;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    bottom: 66px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+    height: 6px;
+    left: 9px;
+    top: auto;
+    width: 8px;
+    z-index: 2;
+}
+
+#slotTrigger.slotTriggerDown {
+    background-position: 0px -17px;
+}
+
+#slotTrigger.slotTriggerDisabled {
+    background-position: 0px -34px;
+    display: none;
+}
+
+.slotSpinAnimation {
+    display: none;
+}
+
+#slot-glaze-bottom {
+    background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 45%, rgba(255, 255, 255, 0.1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(45%, rgba(255, 255, 255, 0.1)), color-stop(100%, rgba(255, 255, 255, 0.1)));
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 45%, rgba(255, 255, 255, 0.1) 100%);
+    background: -o-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 45%, rgba(255, 255, 255, 0.1) 100%);
+    background: -ms-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 45%, rgba(255, 255, 255, 0.1) 100%);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 45%, rgba(255, 255, 255, 0.1) 100%);
+    bottom: 2px;
+    border-radius: 0 0 5px 5px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+    left: 3px;
+    height: 14px;
+    position: absolute;
+    width: 190px;
+}
+
+#slot-details {
+    height: 150px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 200px;
+    z-index: 1;
+}
+
+#slot-top {
+    background: #ED5D1E;
+    border-radius: 10px 10px 0 0;
+    border: 2px solid #ED5D1E;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(0, 0, 0, 0.8), inset 0 0 25px rgba(255, 255, 255, 0.2);
+    height: 12px;
+    left: 50%;
+    margin-left: -98px;
+    position: absolute;
+    top: -3px;
+    width: 196px;
+}
+
+#slot-bottom {
+    background: #ED5D1E;
+    border-radius: 0 0 10px 10px;
+    border: 2px solid #ED5D1E;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(0, 0, 0, 0.8), inset 0 0 25px rgba(255, 255, 255, 0.2);
+    height: 12px;
+    left: 50%;
+    margin-left: -98px;
+    position: absolute;
+    bottom: -3px;
+    width: 196px;
+}
+
+#slot-legend {
+    background: #35A147;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    border: 2px solid #35A147;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    box-shadow: 0 1px 100px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.8), inset 0 0 25px rgba(255, 255, 255, 0.6);
+    height: 180px;
+    left: -240px;
+    position: absolute;
+    top: -15px;
+    width: 200px;
+}
+
+#slot-legend .frame {
+    background: #3A3A3A;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    -moz-box-shadow: 0 0 16px rgba(255, 255, 255, 0.3);
+    -webkit-box-shadow: 0 0 16px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.3), 0 1px 1px rgba(255, 255, 255, 0.5), 0 -1px 1px rgba(255, 255, 255, 0.2), inset 0 -2px 15px #000;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 2px solid #35A147;
+    height: 166px;
+    left: 6px;
+    position: absolute;
+    top: 5px;
+    width: 184px;
+    z-index: 2;
+}
+
+#slot-legend .wins {
+    overflow: hidden;
+    padding: 17px 20px;
+    position: relative;
+    z-index: 3;
+}
+
+#slot-legend .wins li {
+    background: #FFF;
+    border-radius: 2px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.8), 0 -1px 1px rgba(255, 255, 255, 0.5);
+    float: left;
+    margin-bottom: 3px;
+    margin-right: 10px;
+    padding: 0 2px;
+    width: 73px;
+}
+
+#slot-legend .wins li:nth-child(2n) {
+    margin-right: 0;
+}
+
+#slot-legend .wins .icon {
+    background-image: url('../images/lottery.gif');
+    background-size: 100%;
+    float: left;
+    height: 15px;
+    margin-right: 2px;
+    margin-top: 2px;
+    width: 15px;
+}
+
+#slot-machine #slot-legend .wins .icon.none {
+    background-image: url('../images/none.png');
+    background-position: center center;
+}
+
+#slot-legend .wins .jackpot .icon {
+    background-position: center -263px;
+}
+
+#slot-legend .wins .win250 .icon {
+    background-position: center 262px;
+}
+
+#slot-legend .wins .win150 .icon {
+    background-position: center 307px;
+}
+
+#slot-legend .wins .win100 .icon {
+    background-position: center 128px;
+}
+
+#slot-legend .wins .win80-1 .icon.id1 {
+    background-position: center 262px;
+}
+
+#slot-legend .wins .win80-1 .icon.id2 {
+    background-position: center 128px;
+}
+
+#slot-legend .wins .win80-1 .icon.id3 {
+    background-position: center 307px;
+}
+
+#slot-legend .wins .win80-2 .icon {
+    background-position: center -23px;
+}
+
+#slot-legend .wins .win50-1 .icon {
+    background-position: center -23px;
+}
+
+#slot-legend .wins .win50-2 .icon {
+    background-position: center -67px;
+}
+
+#slot-legend .wins .win40 .icon {
+    background-position: center -67px;
+}
+
+#slot-legend .wins .win30 .icon {
+    background-position: center 7px;
+}
+
+#slot-legend .wins .win15 .icon {
+    background-position: center 7px;
+}
+
+#slot-legend .wins .win10 .icon {
+    background-position: center 112px;
+}
+
+#slot-legend .wins .win5 .icon {
+    background-position: center 112px;
+}
+
+#slot-legend .wins .win2 .icon {
+    background-position: center 112px;
+}
+
+#slot-legend .wins .count {
+    float: right;
+    font-family: "Courier New", Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    line-height: 18px;
+    position: relative;
+    top: 1px;
+}
+
+.count {
+    color:#555;
+}

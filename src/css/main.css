@@ -1,0 +1,169 @@
+    html {
+        height: 100%;
+        width: 100%;
+        font-family: 'Roboto', sans-serif;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    body {
+        height: 100%;
+        width: 100%;
+        color: white;
+        text-align: center;
+    }
+
+    .blue-gradient-background {
+        background: -webkit-linear-gradient(bottom, #8914d3, #00d6fe, #8914d3);
+        background: linear-gradient(0deg, #8914d3, #00d6fe, #8914d3);
+        animation: bg-animation 12s linear infinite;
+        -webkit-backface-visibility: hidden;
+        background-size: 600% 600%;
+    }
+
+    @keyframes bg-animation {
+        0% {
+            background-position: 0 97%
+        }
+        50% {
+            background-position: 100% 4%
+        }
+        to {
+            background-position: 0 97%
+        }
+    }
+
+    .logo-header {
+        margin: 2em 0;
+        text-align: left;
+        line-height: 1.5em;
+        font-size: 1.5em;
+        font-weight: 300;
+        display: flex;
+        vertical-align: middle;
+    }
+
+    .logo-name {
+        margin-left: 0.3em;
+        font-weight: 300;
+    }
+
+    .logo-icon {
+        font-size: 1.5em !important;
+    }
+
+    .landing-container {
+        color: white;
+        margin-top: 1em;
+    }
+
+    .text-field-container {
+        width: 70% !important;
+    }
+
+    @media (max-width: 768px) {
+        .text-field-container {
+        width: 98% !important;
+        }
+    }
+
+    .vspace {
+        height: 4em;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: 300;
+    }
+
+    .start-button {
+        font-weight: 300;
+        background-color: rgba(255, 255, 255, 0);
+        color: rgb(255, 255, 255);
+        border-width: 1px;
+        border-style: solid;
+        border-color: rgb(255, 255, 255);
+        border-radius: 15%;
+        border-image: initial;
+    }
+
+    .start-button:hover {
+        background-color: #fff;
+        color: #40bad8;
+    }
+
+    .signup-container{
+        max-width: 700px;
+        min-height: 800px;
+        color: #555;
+        margin: auto;
+    }
+
+    .signup-container h1 {
+        color:#fff;
+    }
+
+    .header-menu-item {
+        position: absolute;
+        right:10%
+    }
+    .header-menu-item a {
+       color: white;
+       cursor: pointer;
+    }
+    .header-menu-item a:hover {
+        text-decoration: none;
+        color:#00d6fe;
+    }
+
+    .status-snack-bar {
+        width: 100%;
+    }
+
+    .status-snack-bar div {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .footer-container{
+        position: absolute;
+        width: 100%;
+        left: 0;
+    }
+
+    .tab-container{
+        min-height: 300px;
+        background-color: white;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .tab-info-text{
+        color: #555;
+        font-size: 1.5em;
+        letter-spacing: 1px;
+    }
+
+    .display-false{
+        display: none !important;
+    }
+
+    .result-text{
+        padding: 3em;
+        text-align: center;
+        font-size: 1.5em;
+        letter-spacing: 2px;
+        -webkit-animation: blinker 1s linear infinite;
+        animation: blinker 1s linear infinite;
+    }
+
+    @keyframes blinker {
+        50% { opacity: 0; }
+      }
