@@ -1,6 +1,6 @@
 ## Boilerplate Code for a Bitcoin Casino Slot site using the BitGo API
 
-No license or restrctions applied. Feel free to fork or modify at your own use. Pull requests will be graciously considered.
+No license or restrictions applied. Feel free to fork or modify at your own use. Pull requests will be graciously considered.
 
 ### Steps for installation
 - install mongodb
